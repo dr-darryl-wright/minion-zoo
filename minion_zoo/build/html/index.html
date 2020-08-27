@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to minion-zoo’s documentation! &#8212; minion-zoo  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-minion-zoo-s-documentation">
+<h1>Welcome to minion-zoo’s documentation!<a class="headerlink" href="#welcome-to-minion-zoo-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-minion"></span><p>Example robot classifiers.</p>
+<p>This module defines a set of minion objects designed to mimic various
+classification behaviour.  All minions must implement the minion.classify()  method to determine how they assign classifications to subjects.</p>
+<dl class="py class">
+<dt id="minion.minion">
+<em class="property">class </em><code class="sig-prename descclassname">minion.</code><code class="sig-name descname">minion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#minion.minion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract minion class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>unique minion id.</p>
+</dd>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>unique minion name.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 53%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>classify(subject_id)</strong></p></td>
+<td><p>classify the given subject.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="minion.minion.classify">
+<code class="sig-name descname">classify</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">subject_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#minion.minion.classify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract class method.</p>
+<p>Must be overriden by subclasses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>subject_id</strong><span class="classifier">int</span></dt><dd><p>unique id of subject to classify.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><dl class="simple">
+<dt>NotImplementedError</dt><dd><p>this class method must be overridden.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="minion.ExpertMinion">
+<em class="property">class </em><code class="sig-prename descclassname">minion.</code><code class="sig-name descname">ExpertMinion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#minion.ExpertMinion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expert classifier always returns the correct label.</p>
+<p>Classifies a given subject with the expert provided label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>unique minion id.</p>
+</dd>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>unique minion name.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 61%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>classify(subject_id, gold_label)</strong></p></td>
+<td><p>classify the given subject with the provided gold label.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="minion.ExpertMinion.classify">
+<code class="sig-name descname">classify</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">subject_id</span></em>, <em class="sig-param"><span class="n">gold_label</span></em><span class="sig-paren">)</span><a class="headerlink" href="#minion.ExpertMinion.classify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classify the given subject with the expert provided gold label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>subject_id</strong><span class="classifier">int</span></dt><dd><p>unique id of subject to classify.</p>
+</dd>
+<dt><strong>gold_label</strong><span class="classifier">int</span></dt><dd><p>expert provided gold label.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>subject_id</strong><span class="classifier">int</span></dt><dd><p>unique id of classified subject.</p>
+</dd>
+<dt><strong>classification</strong><span class="classifier">int</span></dt><dd><p>label assigned to the given subject.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="minion.AllTheSingleLabelsMinion">
+<em class="property">class </em><code class="sig-prename descclassname">minion.</code><code class="sig-name descname">AllTheSingleLabelsMinion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">label</span></em><span class="sig-paren">)</span><a class="headerlink" href="#minion.AllTheSingleLabelsMinion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classifier returning a single label only.</p>
+<p>Classifies all given subjects with the same label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>unique minion id.</p>
+</dd>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>unique minion name.</p>
+</dd>
+<dt><strong>label</strong><span class="classifier">int</span></dt><dd><p>label that this classifier will return for all subjects.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 61%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>classify(subject_id, gold_label)</strong></p></td>
+<td><p>classify the given subject with the provided gold label.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="minion.AllTheSingleLabelsMinion.classify">
+<code class="sig-name descname">classify</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">subject_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#minion.AllTheSingleLabelsMinion.classify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classify the given subject with the label for this classifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>subject_id</strong><span class="classifier">int</span></dt><dd><p>unique id of subject to classify.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>subject_id</strong><span class="classifier">int</span></dt><dd><p>unique id of classified subject.</p>
+</dd>
+<dt><strong>classification</strong><span class="classifier">int</span></dt><dd><p>label assigned to the given subject.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="minion.RandomMinion">
+<em class="property">class </em><code class="sig-prename descclassname">minion.</code><code class="sig-name descname">RandomMinion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">labels</span></em><span class="sig-paren">)</span><a class="headerlink" href="#minion.RandomMinion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classifier that returns a random label for a given subject.</p>
+<p>Classifies each subject with a random label drawn from a provided list of 
+valid labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>unique minion id.</p>
+</dd>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>unique minion name.</p>
+</dd>
+<dt><strong>labels</strong><span class="classifier">array-like, shape (n_labels,)</span></dt><dd><p>list of valid labels for the classification task.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>classify(subject_id)</strong></p></td>
+<td><p>classify the given subject with the provided gold label.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="minion.RandomMinion.classify">
+<code class="sig-name descname">classify</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">subject_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#minion.RandomMinion.classify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classify the given subject with a label selected randomly from the 
+provided labels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>subject_id</strong><span class="classifier">int</span></dt><dd><p>unique id of subject to classify.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>subject_id</strong><span class="classifier">int</span></dt><dd><p>unique id of classified subject.</p>
+</dd>
+<dt><strong>classification</strong><span class="classifier">int</span></dt><dd><p>label assigned to the given subject.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="minion.NoisyMinion">
+<em class="property">class </em><code class="sig-prename descclassname">minion.</code><code class="sig-name descname">NoisyMinion</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">confusion_matrix</span></em><span class="sig-paren">)</span><a class="headerlink" href="#minion.NoisyMinion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classifier returns the correct label a specified fraction of the time.</p>
+<p>The provided gold standard label is flipped based on the specified noise for
+this classifier defined in its confusion matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id</strong><span class="classifier">int</span></dt><dd><p>unique minion id.</p>
+</dd>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>unique minion name.</p>
+</dd>
+<dt><strong>confusion_matrix</strong><span class="classifier">array-like, shape (2,)</span></dt><dd><p>array of confusion matrix elements.  First element corresponds to 0 class,
+second element corresponds to 1 class.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 71%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>classify(subject_id, gold_label)</strong></p></td>
+<td><p>classify the given subject with the gold label adding noise based on the confusion matrix.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt id="minion.NoisyMinion.classify">
+<code class="sig-name descname">classify</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">subject_id</span></em>, <em class="sig-param"><span class="n">gold_label</span></em><span class="sig-paren">)</span><a class="headerlink" href="#minion.NoisyMinion.classify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classify the given subject with the gold label adding noise based on the
+confusion matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>subject_id</strong><span class="classifier">int</span></dt><dd><p>unique id of subject to classify.</p>
+</dd>
+<dt><strong>gold_label</strong><span class="classifier">int</span></dt><dd><p>expert provided gold label.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>subject_id</strong><span class="classifier">int</span></dt><dd><p>unique id of classified subject.</p>
+</dd>
+<dt><strong>classification</strong><span class="classifier">int</span></dt><dd><p>label assigned to the given subject.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">minion-zoo</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Darryl Wright.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
