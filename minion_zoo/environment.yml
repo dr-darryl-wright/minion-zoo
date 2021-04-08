@@ -49,5 +49,5 @@ dependencies:
 - wheel=0.35.1=py_0
 - xz=5.2.5=h1de35cc_0
 - zlib=1.2.11=h1de35cc_3
-prefix: /Users/dwright/anaconda2/envs/minion_zoo
+prefix: ~/anaconda2/envs/minion_zoo
 
